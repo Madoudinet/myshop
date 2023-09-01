@@ -32,8 +32,13 @@
             <td>{{ user.email }}</td>
             <td>{{ user.civilite }}</td>
             <td>
-                {% for role in user.roles %}
-                    {{ role }}
+                {% for indice,role in user.roles %}
+                {% if indice == 1 %}                
+                    Administrateur
+                {% endif %}
+                {% if indice == 0 %}              
+                    Utilisateur
+                {% endif %}                
                 {% endfor %}
             </td>
             <td>{{ user.dateEnregistrement|date('d/m/Y') }}</td>

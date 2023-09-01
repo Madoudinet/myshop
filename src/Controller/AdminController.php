@@ -118,6 +118,7 @@ class AdminController extends AbstractController
 
         return $this->render('registration/role.html.twig', [
             'form' => $form,
+            'user' => $user,
         ]);
     }
 

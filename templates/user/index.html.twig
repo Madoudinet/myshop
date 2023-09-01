@@ -12,6 +12,7 @@
     <thead>
         <tr>
             <th>Produit</th>
+            <th>Photo</th>
             <th>Etat</th>
             <th>Montant</th>
             <th>Quantité</th>
@@ -22,6 +23,7 @@
 {% for commande in app.user.commandes %}
         <tr>
             <td>{{ commande.produit.titre }}</td>
+            <td><img src="{{ asset("img/upload/" ~ commande.produit.photo) }}" alt="" width="40"></td>
             <td>{{ commande.etat }}</td>
             <td>{{ commande.montant * commande.quantite}} €</td>
             <td>{{ commande.quantite }}</td>
