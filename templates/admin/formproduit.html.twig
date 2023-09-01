@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% if editMode %}
+Modifier un produit
+{% else %}
+Ajouter un produit
+{% endif %}
+{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center">
+{% if editMode %}
+Modifier un produit
+{% else %}
+Ajouter un produit
+{% endif %}
+</h1>
+
+{{ form_start(form, {
+    attr:{
+        novalidate: 'novalidate'
+    }
+}) }}
+<div class="row">
+<div class="col-6">{{ form_row(form.titre) }}</div>
+<div class="col-6">{{ form_row(form.description) }}</div>
+<div class="col-3">{{ form_row(form.couleur) }}</div>
+<div class="col-3">{{ form_row(form.taille) }}</div>
+<div class="col-6">{{ form_row(form.photo) }}</div>
+<div class="col-3">{{ form_row(form.collection) }}</div>
+<div class="col-3">{{ form_row(form.prix) }}</div>
+<div class="col-3">{{ form_row(form.stock) }}</div>
+</div>
+<button type="submit" class="btn btn-primary">Valider</button>
+{{ form_end(form) }}
+
+{% endblock %}

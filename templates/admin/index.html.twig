@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Backoffice{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Backoffice</h1>
+<div class="d-grid gap-4">
+<a href="{{ path('admin_ajout') }}" class="col-md-6 offset-md-3 btn btn-lg btn-primary">Ajouter un produit</a>
+<a href="{{ path('admin_gestion') }}" class="col-md-6 offset-md-3 btn btn-lg btn-primary">Gestion des produits</a>
+<a href="{{ path('admin_membre') }}" class="col-md-6 offset-md-3 btn btn-lg btn-primary">Gestion des membres</a>
+<a href="{{ path('admin_commande') }}" class="col-md-6 offset-md-3 btn btn-lg btn-primary">Gestion des commandes</a>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Bonjour {{ app.user.pseudo }}</h1>
+
+<h2 class="text-center">Voici vos commandes</h2>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Produit</th>
+            <th>Etat</th>
+            <th>Montant</th>
+            <th>Quantité</th>
+            <th>Date de commande</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for commande in app.user.commandes %}
+        <tr>
+            <td>{{ commande.produit.titre }}</td>
+            <td>{{ commande.etat }}</td>
+            <td>{{ commande.montant * commande.quantite}} €</td>
+            <td>{{ commande.quantite }}</td>
+            <td>{{ commande.dateEnregistrement|date('d/m/Y à H:i:s' ) }}</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+
+
+    
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des membres{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Gestion des membres</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Pseudo</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Civilité</th>
+            <th>Statut</th>
+            <th>Date d'enregistrement</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tfoot>
+    </tfoot>
+    <tbody>
+    {% for user in users %}
+        
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.pseudo }}</td>
+            <td>{{ user.nom }}</td>
+            <td>{{ user.prenom }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.civilite }}</td>
+            <td>
+                {% for role in user.roles %}
+                    {{ role }}
+                {% endfor %}
+            </td>
+            <td>{{ user.dateEnregistrement|date('d/m/Y') }}</td>
+            <td>
+            <a href="{{ path('admin_membre_modify', {id: user.id}) }}" class="text-info me-2"><i class="bi bi-pencil-square"></i></a>
+            <a href="{{ path('admin_supprimer', {id: user.id}) }}" class="text-danger"><i class="bi bi-trash3-fill"></i></a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

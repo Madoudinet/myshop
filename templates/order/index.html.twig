@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la commande{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Modifier la commande</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.etat) }}
+
+
+<button type="submit" class="btn btn-primary">Valider</button>
+
+    {{ form_end(form) }}
+
+{% endblock %}
